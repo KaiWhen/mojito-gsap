@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "@/plugins";
 import { useMediaQuery } from "react-responsive";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -68,7 +69,7 @@ export default function Hero() {
     const startValue = isMobile ? "top 50%" : "center 60%";
     const endValue = isMobile ? "120% top" : "bottom top";
 
-    let videoTl = gsap.timeline({
+    const videoTl = gsap.timeline({
       scrollTrigger: {
         trigger: "video",
         start: startValue,
@@ -90,16 +91,20 @@ export default function Hero() {
       <section id="hero" className="noisy">
         <h1 className="title">MOJITO</h1>
 
-        <img
+        <Image
           src="/images/hero-left-leaf.png"
           alt="left-leaf"
           className="left-leaf"
+          width={600}
+          height={600}
         />
 
-        <img
+        <Image
           src="/images/hero-right-leaf.png"
           alt="right-leaf"
           className="right-leaf"
+          width={600}
+          height={600}
         />
 
         <div className="body">
