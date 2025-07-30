@@ -177,7 +177,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <div className="video absolute inset-0">
+      <div className="video absolute inset-0 max-md:hidden">
         <video
           ref={videoRef}
           src="/videos/output.mp4"
@@ -185,6 +185,18 @@ export default function Hero() {
           playsInline
           preload="auto"
           poster="/videos/output.png"
+        />
+      </div>
+
+      <div className="md:hidden absolute inset-0">
+        <video
+          src="/videos/output.mp4"
+          muted
+          playsInline
+          preload="auto"
+          poster="/videos/output.png"
+          autoPlay
+          loop
         />
       </div>
     </>
