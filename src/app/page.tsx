@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "@/plugins";
 import Cocktails from "@/sections/Cocktails";
+import About from "@/sections/About";
 
 export default function Home() {
   // Initialize a new Lenis instance for smooth scrolling
@@ -31,6 +32,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Cocktails />
+      <About />
     </main>
   );
 }

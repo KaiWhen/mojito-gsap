@@ -2,28 +2,48 @@ import { cocktailLists, mockTailLists } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
+import { useMediaQuery } from "react-responsive";
 
 export default function Cocktails() {
-  useGSAP(() => {
-    const parallaxTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#cocktails",
-        start: "top 30%",
-        end: "bottom 80%",
-        scrub: true,
-      },
-    });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
-    parallaxTimeline
-      .from("#c-left-leaf", {
-        x: -100,
-        y: 100,
-      })
-      .from("#c-right-leaf", {
-        x: 100,
-        y: 100,
+  useGSAP(() => {
+    if (!isMobile) {
+      const parallaxTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#cocktails",
+          start: "top 50%", // More conservative start
+          end: "bottom 70%", // More conservative end
+          scrub: 1,
+          refreshPriority: -1, // Lower priority than hero animations
+        },
       });
-  });
+
+      // Set initial positions to avoid jumps
+      gsap.set("#c-left-leaf", { x: -100, y: 100 });
+      gsap.set("#c-right-leaf", { x: 100, y: 100 });
+
+      parallaxTimeline
+        .to("#c-left-leaf", {
+          x: 0,
+          y: 0,
+          ease: "none",
+        })
+        .to(
+          "#c-right-leaf",
+          {
+            x: 0,
+            y: 0,
+            ease: "none",
+          },
+          0
+        ); // Start at same time
+    } else {
+      // On mobile, just set leaves to final position
+      gsap.set("#c-left-leaf", { x: 0, y: 0 });
+      gsap.set("#c-right-leaf", { x: 0, y: 0 });
+    }
+  }, [isMobile]);
 
   return (
     <section id="cocktails" className="noisy">

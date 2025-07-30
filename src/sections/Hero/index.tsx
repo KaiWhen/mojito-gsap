@@ -33,6 +33,8 @@ export default function Hero() {
           type: "lines",
         });
 
+        titleSplit.chars.forEach((char) => char.classList.add("text-gradient"));
+
         gsap.set(".title", { visibility: "visible" });
         gsap.set(".subtitle", { visibility: "visible" });
         gsap.set("#cool", { visibility: "visible" });
@@ -85,7 +87,7 @@ export default function Hero() {
           .to(".left-leaf", { y: -200 }, 0);
 
         // Only create video timeline when video is loaded
-        if (videoLoaded && videoRef.current) {
+        if (videoLoaded && videoRef.current && !isMobile) {
           const startValue = isMobile ? "top 50%" : "center 60%";
           const endValue = isMobile ? "120% top" : "bottom top";
 
@@ -96,6 +98,7 @@ export default function Hero() {
               end: endValue,
               scrub: true,
               pin: true,
+              pinSpacing: true,
             },
           });
 
