@@ -174,6 +174,7 @@ export default function Hero() {
           width={600}
           height={600}
           loading="eager"
+          priority
         />
 
         <Image
@@ -183,6 +184,7 @@ export default function Hero() {
           width={600}
           height={600}
           loading="eager"
+          priority
         />
 
         <div className="body">
@@ -219,7 +221,8 @@ export default function Hero() {
           src="/videos/output.mp4"
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/videos/output.png"
         />
       </div>
     </>
