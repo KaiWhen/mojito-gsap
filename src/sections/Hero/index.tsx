@@ -98,7 +98,7 @@ export default function Hero() {
               end: endValue,
               scrub: true,
               pin: true,
-              pinSpacing: true,
+              pinSpacing: false,
             },
           });
 
