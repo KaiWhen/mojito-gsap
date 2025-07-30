@@ -183,7 +183,7 @@ export default function Hero() {
           src="/videos/output.mp4"
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/videos/output.png"
         />
       </div>
