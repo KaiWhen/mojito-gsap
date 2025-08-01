@@ -1,6 +1,7 @@
 import { SplitText } from "@/plugins";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function About() {
   useGSAP(() => {
@@ -65,29 +66,54 @@ export default function About() {
       <div className="top-grid">
         <div className="md:col-span-3">
           <div className="noisy" />
-          <img src="/images/abt1.png" alt="grid-img-1" />
+          <Image
+            src="/images/abt1.png"
+            alt="grid-img-1"
+            width={600}
+            height={600}
+          />
         </div>
 
         <div className="md:col-span-6">
           <div className="noisy" />
-          <img src="/images/abt2.png" alt="grid-img-2" />
+          <Image
+            src="/images/abt2.png"
+            alt="grid-img-2"
+            width={600}
+            height={600}
+          />
         </div>
 
         <div className="md:col-span-3">
           <div className="noisy" />
-          <img src="/images/abt5.png" alt="grid-img-5" />
+          <Image
+            src="/images/abt5.png"
+            alt="grid-img-5"
+            width={600}
+            height={600}
+          />
         </div>
       </div>
 
       <div className="bottom-grid">
         <div className="md:col-span-8">
           <div className="noisy" />
-          <img src="/images/abt3.png" alt="grid-img-3" />
+          <Image
+            src="/images/abt3.png"
+            alt="grid-img-3"
+            width={600}
+            height={600}
+          />
         </div>
 
         <div className="md:col-span-4">
           <div className="noisy" />
-          <img src="/images/abt4.png" alt="grid-img-4" />
+          <Image
+            src="/images/abt4.png"
+            alt="grid-img-4"
+            width={600}
+            height={600}
+          />
         </div>
       </div>
     </div>
